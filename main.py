@@ -20,7 +20,7 @@ async def receive_data(item: DataModel):
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = f"data_{timestamp}.json"
     
-    print(json.dump(item))
+    print(json.dumps(item))
     """# Define the path to save the file
     # Use the mounted persistent disk directory
     file_path = os.path.join("/var/data", "data", filename)
