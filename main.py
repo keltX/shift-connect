@@ -20,7 +20,8 @@ async def receive_data(item: DataModel):
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = f"data_{timestamp}.json"
     
-    # Define the path to save the file
+    print(json.dump(item))
+    """# Define the path to save the file
     # Use the mounted persistent disk directory
     file_path = os.path.join("/var/data", "data", filename)
     
@@ -31,7 +32,7 @@ async def receive_data(item: DataModel):
     with open(file_path, "w") as f:
         json.dump(item.dict(), f, indent=4)
     
-    return {"message": "Data received and saved successfully", "filename": filename}
+    return {"message": "Data received and saved successfully", "filename": filename}"""
 
 if __name__ == "__main__":
     import uvicorn
