@@ -7,15 +7,13 @@ import os
 
 app = FastAPI()
 
-class DataModel(BaseModel):
-    data: Any
 
 @app.head("/")
 async def handle_head():
     return {"message": "OK"}
 
 @app.post("/push/")
-async def receive_data(item: DataModel):
+async def receive_data(item):
     # Generate a unique filename using the current timestamp
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = f"data_{timestamp}.json"
